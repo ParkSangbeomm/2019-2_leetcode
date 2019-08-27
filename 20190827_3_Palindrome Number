@@ -1,0 +1,26 @@
+이전에 했던 reverse Integer 와 비슷한 문제였지만 좌우대칭이 맞는지를 확인하는 문제였다.
+미리 머리속에 담아두고 있어서인지 5분만에 문제가 풀렸다
+먼저 음수이면 음수부호때문에 완전한 좌우대칭이 불가능하다
+그렇기 때문에 음수의 경우 바로 False를 리턴한다
+int 형식을 str 형식으로 바꾼 후 전체 길이의 반만큼 반복문을 돌리면서 맨끝과 처음을 계속 비교하는 것이다
+그리고 만약 일치하지 않는다면 바로 그자리에서 틀렸다고 표시하는 것이다
+c와 다른점은 반복문 속에서 바로 return false를 할 수 있어서 너무 편하다는 점과 
+이건 그냥 깨달은 건데 숫자는 길이를 재는 함수인 len()을 사용할 수 없다는 것이다
+
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        
+        if x<0:
+            return False
+        
+        num = str(x)
+        
+        for i in range(len(num)/2):
+            if num[i] != num[len(num)-i-1]:
+                return False
+            
+        return True
