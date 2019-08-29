@@ -1,0 +1,31 @@
+진짜....파이썬 공부를 하지 않은 것이 너무 문제를 풀 때 나온다
+딕셔너리와 zip 공부를 다시 한 번 보는 것이 좋을 것 같다
+이걸 하나하나 바꾸려고 하니 unicode라고 안된다고 하는데 이건 교수님께 여쭤보는 것이 낫겠다
+진짜...공부열심히하자
+
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        """"
+        answer = ""
+        
+        
+        
+        for i in range(min(strs,key = len)):
+            if strs[0][i] in strs[1][i] and strs[2][i]:
+                answer+=strs[0][i]
+            else:
+                break
+        return answer
+        """
+       
+        lcp = ""
+        for s in zip(*strs):
+            if (s[0],) * len(s) == s:
+                lcp += s[0]
+            else:
+                break
+        return lcp
