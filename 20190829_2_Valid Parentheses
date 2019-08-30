@@ -1,0 +1,16 @@
+아니 이거 대체 몇번째 푸는지 모르겠는데 풀때마다 모르겠네 
+이정도면 바보 아닌가
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack, match = [], {')': '(', ']': '[', '}': '{'}
+        for ch in s:
+            if ch in match:
+                if not (stack and stack.pop() == match[ch]):
+                    return False
+            else:
+                stack.append(ch)
+        return not stack
