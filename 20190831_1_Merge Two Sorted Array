@@ -1,0 +1,23 @@
+데이터구조 시간에 배웠던 내용이었지만 파이썬에서는 어떻게 입력하는지를 몰라서 고민하다가 답을 봤던 문제이다
+새로운 리스트를 만들어서 거기에 추가하는 방법도 있지만 이렇게 recursion을 이용해서 기존에 있던 리스트 중 하나의
+리스트에 추가하는 방법도 있다.
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def mergeTwoLists(self, a, b):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        if a and b:
+            if a.val > b.val:
+                a,b = b,a
+            a.next = self.mergeTwoLists(a.next,b)
+        return a or b
+        
