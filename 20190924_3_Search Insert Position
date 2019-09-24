@@ -1,0 +1,16 @@
+오ㅏ...enumerate 진짜 개쩐다
+생각도 못했는데 이게 반복문에서 몇번돌아가는지랑 그 값이랑 약간 다 저장할 수 있어서
+딕셔너리 느낌도 나는데 깜짝놀랐다
+
+class Solution(object):
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        if target in nums: return nums.index(target)
+        for num, i in enumerate(nums):
+            if i > target:
+                return num;
+        return len(nums)
