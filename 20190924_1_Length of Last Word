@@ -1,0 +1,21 @@
+처음에는 C스럽게 생각해서 카운트하고 빈칸나오면 어떻게 하고 많은 생각을 했었는데 생각해보니 이건 파이썬이더라고요
+그래서 그냥 심플하게 생각했더니 16ms으로 좋게 나왔어요
+
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        """
+        빈칸으로 이루어져 있으면 리턴 0
+        그러면 스트링에 끝까지 갈때까지 아 이거 벡터인가 그 마음대로 조절가능한거 사용하면 될거같기는 한데
+        
+        """
+        
+        l = s.split()
+        #print(len(l))
+        if len(l)== 0:
+            return 0
+        return len(l[::-1][0])
+        
